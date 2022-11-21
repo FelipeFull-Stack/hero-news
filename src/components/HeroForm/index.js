@@ -117,8 +117,5 @@ export function HeroForm() {
             maxLength={99}
         />
         )
-
-
-
     </>
 }
