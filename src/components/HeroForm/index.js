@@ -1,15 +1,9 @@
 import { useState } from "react"
 
-// input-nome                       -texto
-//             Idade: input-idade                     -numero done
-//             Skills: input-skills                   -texto almost done
-//             Onde: input-onde                       -texto done
-//             Tempo: radios-diurno radios-noturno    -radios 
-//             Pagamento:                             -radios
-//             Mensagem:                              -texto
-
 export function HeroForm() {
 
+    // funções
+    const [skill, setSkill] = useState("");
     const [form, setForm] = useState({
         name: "",
         age: 0,
@@ -17,70 +11,80 @@ export function HeroForm() {
         where: "",
         time: "",
         payment: "nap",
-        msg: ""
+        msg: "",
     })
 
-
-
-    const [skill, setSkill] = useState("");
-
     function handleChange(event) {
-        setForm({...form, [event.target.name]: event.target.value})
+        setForm({ ...form, [event.target.name]: event.target.value })
     }
 
     return <>
-        (
-            <label htmlFor="input-age">Idade: </label>
-            <input
+
+        <label htmlFor="inputName">Nome: </label>
+        <input
+            id="inputName"
+            type="text"
+            name="name"
+            onChange={handleChange}
+            value={form.name}
+            placeholder="Digite seu nome de heroi"
+        />
+
+
+        <label htmlFor="input-age">Idade: </label>
+        <input
             type='number'
             id='input-age'
             name='age'
             onChange={handleChange}
             value={form.age}
-            ></input>
+        />
 
-            <label htmlFor="inputSkills">Quais suas habilidades?{" "}</label>       
-            <input
+
+        <label htmlFor="input-where">Onde: </label>
+        <input
+            type='text'
+            id='input-where'
+            name='where'
+            onChange={handleChange}
+            value={form.where}
+        />
+
+
+        <label htmlFor="inputSkills">
+            Quais suas habilidades?{" "}
+        </label>
+        <input
             id="inputSkills"
             type="text"
             name="skills"
             onChange={(event) => {
                 setSkill(event.target.value);
             }}
-            />
-            <button
+        />
+        <button
             type="button"
             onClick={() => {
                 setForm({ ...form, skills: [...form.skills, skill] });
             }}
-            >
+        >
             Adicionar
-            </button>
+        </button>
 
-            <label htmlFor="input-where">Onde: </label>
-            <input
-            type='text'
-            id='input-where'
-            name='where'
-            onChange={handleChange}
-            value={form.where}
-            ></input>
-
-           
-            <select
+        <select
             id='input-time'
             name='time'
             onChange={handleChange}
             defaultValue={form.time}
-            >
-             <option value="day">Diuno</option>
-             <option value="night">Noturno</option>
-             <option value="full-day">24h</option>
-            </select>
+        >
+            <option value="day">Diuno</option>
+            <option value="night">Noturno</option>
+            <option value="full-day">24h</option>
+        </select>
 
-            <label>Forma de pagamento: </label>
-            <label htmlFor="input-payment-pix">Pix</label>
-            <input
+        <label>Forma de pagamento: </label>
+        <label htmlFor="input-payment-pix">Pix</label>
+        <input
             id="input-payment-pix"
             type="radio"
             name="payment"
@@ -89,8 +93,8 @@ export function HeroForm() {
             checked={form.payment === "pix"}
         />
 
-            <label htmlFor="input-payment-credCard">Cred-Card</label>
-            <input
+        <label htmlFor="input-payment-credCard">Cred-Card</label>
+        <input
             id="input-payment-credCard"
             type="radio"
             name="payment"
@@ -98,8 +102,8 @@ export function HeroForm() {
             onChange={handleChange}
             checked={form.payment === "credCard"}
         />
-            <label htmlFor="input-payment-nap">Não Aceita Pagamento</label>
-            <input
+        <label htmlFor="input-payment-nap">Não Aceita Pagamento</label>
+        <input
             id="input-payment-nap"
             type="radio"
             name="payment"
@@ -107,8 +111,10 @@ export function HeroForm() {
             onChange={handleChange}
             checked={form.payment === "nap"}
         />
-            <label htmlFor="inputMsg">Crie sua mensagem</label>       
-            <input
+
+
+        <label htmlFor="inputMsg">Crie sua mensagem</label>
+        <input
             id="inputMsg"
             type="text"
             name="msg"
@@ -116,6 +122,8 @@ export function HeroForm() {
             value={form.msg}
             maxLength={99}
         />
-        )
+
+
+
     </>
 }
