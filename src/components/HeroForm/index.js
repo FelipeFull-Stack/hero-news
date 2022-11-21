@@ -20,7 +20,6 @@ export function HeroForm() {
 
     return <>
 
-
         <label htmlFor="inputName">Nome: </label>
         <input
             id="inputName"
@@ -39,7 +38,7 @@ export function HeroForm() {
             name='age'
             onChange={handleChange}
             value={form.age}
-        ></input>
+        />
 
 
         <label htmlFor="input-where">Onde: </label>
@@ -49,7 +48,7 @@ export function HeroForm() {
             name='where'
             onChange={handleChange}
             value={form.where}
-        ></input>
+        />
 
 
         <label htmlFor="inputSkills">
@@ -123,16 +122,6 @@ export function HeroForm() {
             value={form.msg}
             maxLength={99}
         />
-
-        {/* 
-            Nome: input-nome                       -texto   -done: Felipe
-            Idade: input-idade                     -numero  -done: Vitor
-            Skills: input-skills                   -texto   -done: Felipe
-            Onde: input-onde                       -texto   -done: Vitor
-            Tempo: radios-diurno radios-noturno    -radios  -done: Vitor
-            Pagamento:                             -radios  -done: Felipe
-            Mensagem:                              -texto   -done: Vitor
-         */}
 
 
 
