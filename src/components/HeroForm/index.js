@@ -22,42 +22,43 @@ export function HeroForm() {
     async function handleSubmit(event) {
         event.preventDefault();
         try {
-            axios.post("https://ironrest.cyclic.app/createCollection/hero-news", form);
+            await axios.post("https://ironrest.cyclic.app/createCollection/hero-news", form);
         } catch (err) {
             console.log(err);
         }
     }
 
-
-        <label htmlFor="inputName">Nome: </label>
-        <input
-            id="inputName"
-            type="text"
-            name="name"
-            onChange={handleChange}
-            value={form.name}
-            placeholder="Digite seu nome de heroi"
-        />
-
-
-        <label htmlFor="input-age">Idade: </label>
-        <input
-            type='number'
-            id='input-age'
-            name='age'
-            onChange={handleChange}
-            value={form.age}
-        ></input>
+    return (
+        <form onSubmit={handleSubmit}>
+            <label htmlFor="inputName">Nome: </label>
+            <input
+                id="inputName"
+                type="text"
+                name="name"
+                onChange={handleChange}
+                value={form.name}
+                placeholder="Digite seu nome de heroi"
+            />
 
 
-        <label htmlFor="input-where">Onde: </label>
-        <input
-            type='text'
-            id='input-where'
-            name='where'
-            onChange={handleChange}
-            value={form.where}
-        ></input>
+            <label htmlFor="input-age">Idade: </label>
+            <input
+                type='number'
+                id='input-age'
+                name='age'
+                onChange={handleChange}
+                value={form.age}
+            ></input>
+
+
+            <label htmlFor="input-where">Onde: </label>
+            <input
+                type='text'
+                id='input-where'
+                name='where'
+                onChange={handleChange}
+                value={form.where}
+            ></input>
 
             <label htmlFor="inputSkills">
                 Quais suas habilidades?{" "}
@@ -121,27 +122,17 @@ export function HeroForm() {
             />
 
 
-        <label htmlFor="inputMsg">Crie sua mensagem</label>
-        <input
-            id="inputMsg"
-            type="text"
-            name="msg"
-            onChange={handleChange}
-            value={form.msg}
-            maxLength={99}
-        />
-
-        {/* 
-            Nome: input-nome                       -texto   -done: Felipe
-            Idade: input-idade                     -numero  -done: Vitor
-            Skills: input-skills                   -texto   -done: Felipe
-            Onde: input-onde                       -texto   -done: Vitor
-            Tempo: radios-diurno radios-noturno    -radios  -done: Vitor
-            Pagamento:                             -radios  -done: Felipe
-            Mensagem:                              -texto   -done: Vitor
-         */}
-
-
-
-    </>
+            <label htmlFor="inputMsg">Crie sua mensagem</label>
+            <input
+                id="inputMsg"
+                type="text"
+                name="msg"
+                onChange={handleChange}
+                value={form.msg}
+                maxLength={99}
+            />
+            
+            <button type="Submit">Enviar</button>
+        </form>
+    )
 }
