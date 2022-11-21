@@ -28,37 +28,36 @@ export function HeroForm() {
         }
     }
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="inputName">Nome: </label>
-            <input
-                id="inputName"
-                type="text"
-                name="name"
-                onChange={handleChange}
-                value={form.name}
-                placeholder="Seu nome de heroi..."
-            />
 
-            <label htmlFor="input-age">Idade: </label>
-            <input
-                type='number'
-                id='input-age'
-                name='age'
-                onChange={handleChange}
-                value={form.age}
-                placeholder="Sua idade de heroi..."
-            />
+        <label htmlFor="inputName">Nome: </label>
+        <input
+            id="inputName"
+            type="text"
+            name="name"
+            onChange={handleChange}
+            value={form.name}
+            placeholder="Digite seu nome de heroi"
+        />
 
-            <label htmlFor="input-where">Onde: </label>
-            <input
-                type='text'
-                id='input-where'
-                name='where'
-                onChange={handleChange}
-                value={form.where}
-                placeholder="Onde atua..."
-            ></input>
+
+        <label htmlFor="input-age">Idade: </label>
+        <input
+            type='number'
+            id='input-age'
+            name='age'
+            onChange={handleChange}
+            value={form.age}
+        ></input>
+
+
+        <label htmlFor="input-where">Onde: </label>
+        <input
+            type='text'
+            id='input-where'
+            name='where'
+            onChange={handleChange}
+            value={form.where}
+        ></input>
 
             <label htmlFor="inputSkills">
                 Quais suas habilidades?{" "}
@@ -121,16 +120,28 @@ export function HeroForm() {
                 checked={form.payment === "nap"}
             />
 
-            <label htmlFor="inputMsg">Crie sua mensagem</label>
-            <input
-                id="inputMsg"
-                type="text"
-                name="msg"
-                placeholder="Sua mensagem de heroi..."
-                onChange={handleChange}
-                value={form.msg}
-                maxLength={99}
-            />
-        </form>
-    );
+
+        <label htmlFor="inputMsg">Crie sua mensagem</label>
+        <input
+            id="inputMsg"
+            type="text"
+            name="msg"
+            onChange={handleChange}
+            value={form.msg}
+            maxLength={99}
+        />
+
+        {/* 
+            Nome: input-nome                       -texto   -done: Felipe
+            Idade: input-idade                     -numero  -done: Vitor
+            Skills: input-skills                   -texto   -done: Felipe
+            Onde: input-onde                       -texto   -done: Vitor
+            Tempo: radios-diurno radios-noturno    -radios  -done: Vitor
+            Pagamento:                             -radios  -done: Felipe
+            Mensagem:                              -texto   -done: Vitor
+         */}
+
+
+
+    </>
 }
