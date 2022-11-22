@@ -22,14 +22,14 @@ export function HeroForm() {
     async function handleSubmit(event) {
         event.preventDefault();
         try {
-            await axios.post("https://ironrest.cyclic.app/hero-news", form);
+         await axios.post("https://ironrest.cyclic.app/hero-news", form);
         } catch (err) {
             console.log(err);
         }
     }
 
     function handleSkillInput(){
-        if(form.skills.includes(skill)){
+        if(form.skills.includes(skill) || skill === ''){
         return {...form}
         }
         return {...form, skills: [...form.skills, skill]};
@@ -95,6 +95,7 @@ export function HeroForm() {
                 }
                 onChange={(event) => {
                     setSkill(event.target.value);
+                    console.log(skill);
                 }}
             />
             <button
