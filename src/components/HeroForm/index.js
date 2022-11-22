@@ -28,8 +28,13 @@ export function HeroForm() {
         }
     }
 
-
-
+    function handleSkillInput(){
+        if(form.skills.includes(skill)){
+        return {...form}
+        }
+        return {...form, skills: [...form.skills, skill]};
+    }
+    
     return (
         
         <form onSubmit={handleSubmit}>
@@ -83,12 +88,7 @@ export function HeroForm() {
                 placeholder="Suas skills de heroi..."
                 onKeyDown={(event) => event.key === 'Enter' ? 
                     (
-                    setForm(function(){
-                        if(form.skills.includes(skill)){
-                            return {...form}
-                        }
-                        return {...form, skills: [...form.skills, skill]};
-                    }),
+                    setForm(handleSkillInput()),
                     setSkill('')
                     )
                     : null
@@ -100,7 +100,7 @@ export function HeroForm() {
             <button
                 type="button"
                 onClick={() => {
-                    setForm({...form, skills: [...form.skills, skill] });
+                    setForm(handleSkillInput());
                     setSkill('');
                 }}
             >
