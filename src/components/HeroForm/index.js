@@ -22,7 +22,8 @@ export function HeroForm() {
     async function handleSubmit(event) {
         event.preventDefault();
         try {
-            await axios.post("https://ironrest.cyclic.app/createCollection/hero-news", form);
+            await axios.post("https://ironrest.cyclic.app/hero-news", form);
+            console.log(form);
         } catch (err) {
             console.log(err);
         }
