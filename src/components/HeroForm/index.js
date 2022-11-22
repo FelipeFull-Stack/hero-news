@@ -4,7 +4,6 @@ import axios from "axios";
 export function HeroForm() {
 
     // funções
-    const [skill, setSkill] = useState("");
     const [form, setForm] = useState({
         name: "",
         age: "",
@@ -14,6 +13,8 @@ export function HeroForm() {
         payment: "nap",
         msg: "",
     })
+    const [skill, setSkill] = useState("");
+    console.log(form)
 
     function handleChange(event) {
         setForm({ ...form, [event.target.name]: event.target.value })
@@ -22,7 +23,7 @@ export function HeroForm() {
     async function handleSubmit(event) {
         event.preventDefault();
         try {
-            await axios.post("https://ironrest.cyclic.app/createCollection/hero-news", form);
+            await axios.post("https://ironrest.cyclic.app/hero-news", form);
         } catch (err) {
             console.log(err);
         }
@@ -60,6 +61,8 @@ export function HeroForm() {
                 value={form.where}
             ></input>
 
+
+            <br />
             <label htmlFor="inputSkills">
                 Quais suas habilidades?{" "}
             </label>
@@ -75,11 +78,27 @@ export function HeroForm() {
             <button
                 type="button"
                 onClick={() => {
-                    setForm({ ...form, skills: [...form.skills, skill] });
+                    setForm({...form, skills: [...form.skills, skill] });
                 }}
             >
                 Adicionar
             </button>
+            <br />
+            {form.skills.map((currentSkill) => (
+                <>
+                    <strong>{currentSkill}</strong>
+                    <button
+                        type="button"
+                        onClick={() => {
+                            setForm({ ...form, skills: [...skill] });
+                        }}
+                    >
+                        Remover
+                    </button>
+                </>
+            ))}
+            <br />
+
 
             <select
                 id='input-time'
@@ -131,8 +150,8 @@ export function HeroForm() {
                 value={form.msg}
                 maxLength={99}
             />
-            
-            <button type="Submit">Enviar</button>
+
+            <button type="submit">Enviar</button>
         </form>
     )
 }
