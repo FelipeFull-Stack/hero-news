@@ -3,18 +3,17 @@ import axios from "axios";
 
 export function HeroForm() {
 
-    // funções
     const [form, setForm] = useState({
         name: "",
-        age: "",
+        age: 30,
         skills: [],
         where: "",
         time: "",
         payment: "nap",
         msg: "",
     })
+
     const [skill, setSkill] = useState("");
-    console.log(form)
 
     function handleChange(event) {
         setForm({ ...form, [event.target.name]: event.target.value })
@@ -29,8 +28,13 @@ export function HeroForm() {
         }
     }
 
+
+
     return (
+        
         <form onSubmit={handleSubmit}>
+            {/* NAME */}
+            <div>
             <label htmlFor="inputName">Nome: </label>
             <input
                 id="inputName"
@@ -40,8 +44,10 @@ export function HeroForm() {
                 value={form.name}
                 placeholder="Digite seu nome de heroi"
             />
+            </div>
 
-
+            {/* AGE */}
+            <div>
             <label htmlFor="input-age">Idade: </label>
             <input
                 type='number'
@@ -50,8 +56,10 @@ export function HeroForm() {
                 onChange={handleChange}
                 value={form.age}
             ></input>
+            </div>
 
-
+            {/* WHERE */}
+            <div>
             <label htmlFor="input-where">Onde: </label>
             <input
                 type='text'
@@ -60,9 +68,10 @@ export function HeroForm() {
                 onChange={handleChange}
                 value={form.where}
             ></input>
+            </div>
 
-
-            <br />
+            {/* SKILLS*/}
+            <div>
             <label htmlFor="inputSkills">
                 Quais suas habilidades?{" "}
             </label>
@@ -70,7 +79,20 @@ export function HeroForm() {
                 id="inputSkills"
                 type="text"
                 name="skills"
+                value={skill}
                 placeholder="Suas skills de heroi..."
+                onKeyDown={(event) => event.key === 'Enter' ? 
+                    (
+                    setForm(function(){
+                        if(form.skills.includes(skill)){
+                            return {...form}
+                        }
+                        return {...form, skills: [...form.skills, skill]};
+                    }),
+                    setSkill('')
+                    )
+                    : null
+                }
                 onChange={(event) => {
                     setSkill(event.target.value);
                 }}
@@ -79,40 +101,48 @@ export function HeroForm() {
                 type="button"
                 onClick={() => {
                     setForm({...form, skills: [...form.skills, skill] });
+                    setSkill('');
                 }}
             >
                 Adicionar
             </button>
             <br />
             {form.skills.map((currentSkill) => (
-                <>
+                <div key={`${form.name}-${currentSkill}`}>
                     <strong>{currentSkill}</strong>
                     <button
                         type="button"
                         onClick={() => {
-                            setForm({ ...form, skills: [...skill] });
+                            setForm({...form, skills: form.skills.filter(element => element !== currentSkill)});   
                         }}
                     >
                         Remover
                     </button>
-                </>
+                </div>
             ))}
-            <br />
-
-
+            </div>
+        
+            {/* TIME*/} 
+            <div>
+            <label htmlFor="input-time">"Horário": </label>            
             <select
                 id='input-time'
                 name='time'
                 onChange={handleChange}
                 defaultValue={form.time}
-            >
+            >   
+                
                 <option value="day">Diurno</option>
                 <option value="night">Noturno</option>
                 <option value="full-day">24h</option>
             </select>
+            </div>
 
+            {/* PAYMENT*/}
+
+            <div>
             <label>Forma de pagamento: </label>
-            <label htmlFor="input-payment-pix">Pix</label>
+            
             <input
                 id="input-payment-pix"
                 type="radio"
@@ -121,7 +151,7 @@ export function HeroForm() {
                 onChange={handleChange}
                 checked={form.payment === "pix"}
             />
-            <label htmlFor="input-payment-credCard">Cred-Card</label>
+            <label htmlFor="input-payment-pix">Pix</label>
             <input
                 id="input-payment-credCard"
                 type="radio"
@@ -130,7 +160,7 @@ export function HeroForm() {
                 onChange={handleChange}
                 checked={form.payment === "credCard"}
             />
-            <label htmlFor="input-payment-nap">Não Aceita Pagamento</label>
+            <label htmlFor="input-payment-credCard">Cred-Card</label>
             <input
                 id="input-payment-nap"
                 type="radio"
@@ -139,8 +169,11 @@ export function HeroForm() {
                 onChange={handleChange}
                 checked={form.payment === "nap"}
             />
+            <label htmlFor="input-payment-nap">Não Aceita Pagamento</label>
+            </div>
 
-
+            {/* MSG ADD*/} 
+            <div>             
             <label htmlFor="inputMsg">Crie sua mensagem</label>
             <input
                 id="inputMsg"
@@ -152,6 +185,7 @@ export function HeroForm() {
             />
 
             <button type="submit">Enviar</button>
+            </div> 
         </form>
     )
 }
