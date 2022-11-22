@@ -31,7 +31,7 @@ export function HeroForm() {
             console.log(err);
         }
     }
-
+    
     function handleSkillInput(){
         if(form.skills.includes(skill) || skill === ''){
         return {...form}
@@ -129,7 +129,7 @@ export function HeroForm() {
         
             {/* TIME*/} 
             <div>
-            <label htmlFor="input-time">"Horário": </label>            
+            <label htmlFor="input-time">Horário: </label>            
             <select
                 id='input-time'
                 name='time'
@@ -179,7 +179,7 @@ export function HeroForm() {
 
             {/* MSG ADD*/} 
             <div>             
-            <label htmlFor="inputMsg">Crie sua mensagem</label>
+            <label htmlFor="inputMsg">Crie sua mensagem: </label>
             <input
                 id="inputMsg"
                 type="text"
