@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" />
         <Route path="/criar-anuncio/" element={<HeroForm />} />{/*criação do formulário*/}
-        <Route path="/ver-anuncio/:id" element={<HeroView />} />{/*visualização do formulário*/}
+        <Route path="/ver-anuncio" element={<HeroView />} />{/*visualização do formulário*/}
         <Route path="*" />
       </Routes>
       {/* <SideBarShop /> Se a gnt conseguir chegar*/}
