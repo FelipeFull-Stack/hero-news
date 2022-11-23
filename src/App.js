@@ -14,9 +14,9 @@ function App() {
       <NavBar />
 
       <Routes >
-        <Route path="/home" element={<HeroPage />} />{/*home - exibição dos anuncios*/}
+        <Route path="/" element={<HeroPage />} />{/*home - exibição dos anuncios*/}
         <Route path="/criar-anuncio" element={<HeroForm />} />{/*criação do formulário*/}
-        <Route path="/ver-anuncio" element={<HeroView />} />{/*visualização do formulário*/}
+        <Route path="/ver-anuncio/:id" element={<HeroView />} />{/*visualização do formulário*/}
         <Route path="/editar-anuncio" element={<HeroEdit />} />{/*edição do formulário*/}
         <Route path="*" />
       </Routes>
