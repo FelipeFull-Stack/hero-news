@@ -25,24 +25,24 @@ export function HeroView() {
 
     return (
         <>
-             <div key={form._id}>
+            <div key={form._id}>
                 {form.name ? <h1>Nome: {form.name}</h1> : null}
                 {form.age ? <p>Idade: {form.age}</p> : null}
                 {form.where ? <p>Atuando em: {form.where}</p> : null}
-                {form.skills && form.skills.length !== 0 ? 
+                {form.skills && form.skills.length !== 0 ?
                     <ul>Skills:
-                    {form.skills.map(element => {
-                    return (<li key={`${form.name}-${element}`}>{element}</li>);
-                    })}
-                    </ul> 
+                        {form.skills.map(element => {
+                            return (<li key={`${form.name}-${element}`}>{element}</li>);
+                        })}
+                    </ul>
                     : null}
                 {form.time ? <p>Horário: {form.time}</p> : null}
                 {form.payment ? <p>Só aceita: {form.payment}</p> : null}
-                {form.msg ? <h2>Slogan: {form.msg}</h2> : null}    
+                {form.msg ? <h2>Slogan: {form.msg}</h2> : null}
             </div>
-            <Link to="/home">Voltar</Link>  
-            <Link to={`/editar-anuncio/${form.id}`}>Editar</Link> 
-             
+            <Link to="/home">Voltar</Link>
+            <Link to={`/editar-anuncio/${form.id}`}>Editar</Link>
+
         </>
     );
 }
