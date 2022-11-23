@@ -22,7 +22,25 @@ export function HeroForm() {
     async function handleSubmit(event) {
         event.preventDefault();
         try {
-         await axios.post("https://ironrest.cyclic.app/hero-news", form);
+         let res = await axios.get("https://ironrest.cyclic.app/hero-news");
+         let arr = res.data;
+         for (let i = 0; i < arr.length; i++) {
+            const element = arr[i];
+            if(element.name === form.name){
+                console.log('repetido');
+                return
+             }
+            }
+            await axios.post("https://ironrest.cyclic.app/hero-news", form);
+            setForm({
+                name: "",
+                age: 30,
+                skills: [],
+                where: "",
+                time: "",
+                payment: "nap",
+                msg: "",
+            })
         } catch (err) {
             console.log(err);
         }
@@ -37,7 +55,7 @@ export function HeroForm() {
     
     return (
         
-        <form onSubmit={handleSubmit}>
+        <form>
             {/* NAME */}
             <div>
             <label htmlFor="inputName">Nome: </label>
@@ -48,6 +66,7 @@ export function HeroForm() {
                 onChange={handleChange}
                 value={form.name}
                 placeholder="Digite seu nome de heroi"
+                required
             />
             </div>
 
@@ -72,6 +91,7 @@ export function HeroForm() {
                 name='where'
                 onChange={handleChange}
                 value={form.where}
+                required
             ></input>
             </div>
 
@@ -86,6 +106,7 @@ export function HeroForm() {
                 name="skills"
                 value={skill}
                 placeholder="Suas skills de heroi..."
+                // REMOVED ENTER, CONFLICT WITH SUBMIT BTN
                 onKeyDown={(event) => event.key === 'Enter' ? 
                     (
                     setForm(handleSkillInput()),
@@ -95,7 +116,6 @@ export function HeroForm() {
                 }
                 onChange={(event) => {
                     setSkill(event.target.value);
-                    console.log(skill);
                 }}
             />
             <button
@@ -140,7 +160,6 @@ export function HeroForm() {
             </div>
 
             {/* PAYMENT*/}
-
             <div>
             <label>Forma de pagamento: </label>
             
@@ -183,10 +202,11 @@ export function HeroForm() {
                 onChange={handleChange}
                 value={form.msg}
                 maxLength={99}
+                required
             />
-
-            <button type="submit">Enviar</button>
             </div> 
+
+            <button type="button" onClick={handleSubmit}>Enviar</button>
         </form>
     )
 }

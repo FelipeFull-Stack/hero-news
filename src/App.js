@@ -12,7 +12,7 @@ function App() {
   return (
     <div>
       <NavBar />
-      <SideBarAdds />
+      {/* <SideBarAdds /> */}
       <Routes>
         <Route path="/" />
         <Route path="/criar-anuncio/" element={<HeroForm />} />{/*criação do formulário*/}
