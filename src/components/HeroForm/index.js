@@ -55,7 +55,7 @@ export function HeroForm() {
     
     return (
         
-        <form onSubmit={handleSubmit}>
+        <form>
             {/* NAME */}
             <div>
             <label htmlFor="inputName">Nome: </label>
@@ -107,13 +107,13 @@ export function HeroForm() {
                 value={skill}
                 placeholder="Suas skills de heroi..."
                 // REMOVED ENTER, CONFLICT WITH SUBMIT BTN
-                // onKeyDown={(event) => event.key === 'Enter' ? 
-                //     (
-                //     setForm(handleSkillInput()),
-                //     setSkill('')
-                //     )
-                //     : null
-                // }
+                onKeyDown={(event) => event.key === 'Enter' ? 
+                    (
+                    setForm(handleSkillInput()),
+                    setSkill('')
+                    )
+                    : null
+                }
                 onChange={(event) => {
                     setSkill(event.target.value);
                 }}
@@ -204,9 +204,9 @@ export function HeroForm() {
                 maxLength={99}
                 required
             />
-
-            <button type="submit">Enviar</button>
             </div> 
+
+            <button type="button" onClick={handleSubmit}>Enviar</button>
         </form>
     )
 }
