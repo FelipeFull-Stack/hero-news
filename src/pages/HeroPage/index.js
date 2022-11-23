@@ -20,17 +20,21 @@ export function HeroPage() {
     }, [])
     console.log(form)
     return (
-        <div className="bg-red-200 inline-grid">
-            {/* <Link to={`/ver-anuncio`} > */}
-                {form.map((currentElement) => {
+
+        <div className="flex flex-row gap-2 m-2">
+
+            {form.map((currentElement) => {
                     return (
-                        <div>
-                            <h1>Nome: {currentElement.name}</h1>
-                            <p>Anuncia: {currentElement.msg}</p>
-                        </div>
+                        <Link to={`/ver-anuncio/${currentElement._id}`} className="" >
+                            <article className="w-60 rounded-md p-3 shadow grid gap-y-2 bg-blue-700">
+                                <h1 className="text-white">- {currentElement.name}</h1>
+                                <p className="text-white">"{currentElement.msg}"</p>
+                            </article><br />
+                        </Link>
                     )
-                })}
-            {/* </Link> */}
+                })
+            }
         </div>
+
     )
 }
