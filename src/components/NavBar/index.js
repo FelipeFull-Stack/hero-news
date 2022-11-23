@@ -1,3 +1,9 @@
+
+
 export function NavBar() {
-    return <h1>oi</h1>
+    return (
+        <div className="bg-red-500">
+            OI
+        </div>
+    )
 }
