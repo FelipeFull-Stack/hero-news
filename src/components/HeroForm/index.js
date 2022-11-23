@@ -106,13 +106,14 @@ export function HeroForm() {
                 name="skills"
                 value={skill}
                 placeholder="Suas skills de heroi..."
-                onKeyDown={(event) => event.key === 'Enter' ? 
-                    (
-                    setForm(handleSkillInput()),
-                    setSkill('')
-                    )
-                    : null
-                }
+                // REMOVED ENTER, CONFLICT WITH SUBMIT BTN
+                // onKeyDown={(event) => event.key === 'Enter' ? 
+                //     (
+                //     setForm(handleSkillInput()),
+                //     setSkill('')
+                //     )
+                //     : null
+                // }
                 onChange={(event) => {
                     setSkill(event.target.value);
                 }}
@@ -159,7 +160,6 @@ export function HeroForm() {
             </div>
 
             {/* PAYMENT*/}
-
             <div>
             <label>Forma de pagamento: </label>
             
