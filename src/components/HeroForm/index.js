@@ -11,7 +11,7 @@ export function HeroForm() {
         age: 30,
         skills: [],
         where: "",
-        time: "",
+        time: "Diurno",
         payment: "nap",
         msg: "",
     })
@@ -19,9 +19,6 @@ export function HeroForm() {
     const [skill, setSkill] = useState("");
 
     function handleChange(event) {
-
-
-
         setForm({ ...form, [event.target.name]: event.target.value })
     }
 
@@ -164,9 +161,9 @@ export function HeroForm() {
                     defaultValue={form.time}
                     className="border-2 border-blue-500"
                 >
-                    <option value="day">Diurno</option>
-                    <option value="night">Noturno</option>
-                    <option value="full-day">24h</option>
+                    <option value="Diurno">Diurno</option>
+                    <option value="Noturno">Noturno</option>
+                    <option value="24h">24h</option>
                 </select>
             </div>
 

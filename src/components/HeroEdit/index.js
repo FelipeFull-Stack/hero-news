@@ -167,7 +167,7 @@ export function HeroEdit(props) {
                     </div>
                 ))}
             </div>
-
+            
             {/* TIME*/}
             <div className="m-1 bg-white rounded p-1">
                 <label htmlFor="input-time">Horário: </label>
@@ -178,10 +178,10 @@ export function HeroEdit(props) {
                     defaultValue={form.time}
                     className="border-2 border-blue-500"
                 >
-
-                    <option value="day">Diurno</option>
-                    <option value="night">Noturno</option>
-                    <option value="full-day">24h</option>
+                    {/* selected="selected" */}
+                    <option value="Diurno" selected={form.time === 'Diurno' ? "selected" : ""}>Diurno</option>
+                    <option value="Noturno" selected={form.time === 'Noturno' ? "selected" : ""}>Noturno</option>
+                    <option value="24h" selected={form.time === '24h' ? "selected" : ""}>24h</option>
                 </select>
             </div>
 
