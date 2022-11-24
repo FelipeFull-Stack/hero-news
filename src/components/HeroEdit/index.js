@@ -52,7 +52,7 @@ export function HeroEdit(props) {
                 payment: form.payment,
                 msg: form.msg,
             });
-            console.log(res);
+            window.location = ('http://localhost:3000/');
             // setForm({
             //     name: "",
             //     age: 30,
