@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 
+
 export function HeroView() {
 
     const [form, setForm] = useState({});
@@ -13,8 +14,6 @@ export function HeroView() {
         fetchHero();
         async function fetchHero() {
             try {
-                // const response = await axios.get(`https://ironrest.cyclic.app/hero-news/ver-anuncio/${params.id}`);
-                // MODO TESTE 
                 const response = await axios.get(`https://ironrest.cyclic.app/hero-news/${params.id}`);
                 setForm(response.data)
             } catch (err) {
@@ -22,6 +21,17 @@ export function HeroView() {
             }
         }
     }, [])
+
+    async function deleteCard(){
+        try {
+            await axios.delete(`https://ironrest.cyclic.app/hero-news/${params.id}`);
+            //DEIXAR DINAMICO AINDA A URL, TROCAR O LOCAL HOST
+            window.location = ('http://localhost:3000/')
+        }
+        catch(err) {
+            console.log(err);
+        }
+    }
 
     return (
         <div className="m-10 p-5 bg-blue-500 rounded-md">
@@ -42,6 +52,13 @@ export function HeroView() {
             </div>
             <Link to="/" className="bg-white m-3 p-2 rounded transition ease-in-out delay-50 hover:scale-110 hover:bg-green-500 duration-50">Voltar</Link>
             <Link to={`/editar-anuncio/${form._id}`} id={form._id} className="bg-white m-2 p-2 rounded transition ease-in-out delay-50 hover:scale-110 hover:bg-green-500 duration-50">Editar</Link>
+            <button to="/" 
+            onClick={deleteCard}
+            className="bg-white m-3 p-2 rounded transition ease-in-out delay-50 hover:scale-110 hover:bg-green-500 duration-50"
+            >
+            Delete
+            </button>
+           
         </div>
     );
 }
