@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "../../index.css";
+import imgIcon from '../../fonts/add-circle-outline.svg';
+
 
 export function HeroPage() {
 
@@ -26,9 +28,9 @@ export function HeroPage() {
             {form.map((currentElement) => {
                 return (
                     <>
-                        <Link to={`/ver-anuncio/${currentElement._id}`} className="w-40 rounded-md p-3 shadow grid gap-y-2 bg-blue-700 transition ease-in-out delay-50 hover:scale-110 hover:bg-red-500 duration-50">
-                            <h1 className="text-white">- {currentElement.name}</h1>
-                            <p className="bg-white rounded-md text-blue text-center">"{currentElement.msg}"</p>
+                        <Link to={`/ver-anuncio/${currentElement._id}`} className="w-30 rounded-md p-3 shadow grid gap-y-2 bg-blue-700 transition ease-in-out delay-50 hover:scale-110 hover:bg-red-500 duration-50">
+                            <h1 className="text-white text-[10px] mx-auto">{currentElement.name}</h1>
+                            <p className="bg-white rounded-md text-blue text-center text-[8px]">"{currentElement.msg}"</p>
                         </Link>
 
                     </>
@@ -36,8 +38,8 @@ export function HeroPage() {
             })
 
             }
-            <Link to="/criar-anuncio" className="w-20 h-20 rounded-md items-center text-center text-3xl shadow grid gap-y-2 bg-white transition ease-in-out delay-50 hover:scale-110 hover:bg-blue-500 duration-50">
-                (+)
+            <Link to="/criar-anuncio" className="w-20 rounded-md items-center text-center text-3xl shadow grid gap-y-2 bg-white transition ease-in-out delay-50 hover:scale-110 hover:bg-blue-500 duration-50">
+                <img src={imgIcon} alt="icon-add"/>
             </Link>
         </div>
 
