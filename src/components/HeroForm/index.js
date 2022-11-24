@@ -213,9 +213,9 @@ export function HeroForm() {
                     name="msg"
                     onChange={handleChange}
                     value={form.msg}
-                    maxLength={99}
+                    maxLength={120}
                     required
-                    className="align-top bg-gray-300 border indent-1 border-black rounded pr-40"
+                    className="align-top bg-gray-300 border indent-1 border-black p-1 rounded w-full text-xs w-full"
                 />
             </div>
             <Link to="/" className="bg-white m-1 p-2 rounded transition ease-in-out delay-50 hover:scale-110 hover:bg-green-500 duration-50">Voltar</Link>                    

@@ -12,6 +12,10 @@
     src: url(./fonts/HallOfHeroes-BErn.ttf);
 }
 
+html {
+    font-family: 'Oswald';
+}
+
 .title-nav {
     font-family: 'Star Guard';
     font-size: 36px;

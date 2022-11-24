@@ -29,8 +29,8 @@ export function HeroPage() {
                 return (
                     <>
                         <Link to={`/ver-anuncio/${currentElement._id}`} className="w-30 rounded-md p-3 shadow grid gap-y-2 bg-blue-700 transition ease-in-out delay-50 hover:scale-110 hover:bg-red-500 duration-50">
-                            <h1 className="text-white text-[10px] mx-auto">{currentElement.name}</h1>
-                            <p className="bg-white rounded-md text-blue text-center text-[8px]">"{currentElement.msg}"</p>
+                            <h1 className="text-white text-[10px] mx-auto font-bold capitalize">{currentElement.name}</h1>
+                            <p className="bg-white p-1 rounded-md text-blue text-center text-[8px] italic leading-tight">"{currentElement.msg}"</p>
                         </Link>
 
                     </>
