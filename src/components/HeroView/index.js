@@ -37,7 +37,7 @@ export function HeroView() {
                     </ul>
                     : null}</div>
                 <div className="m-1 bg-white rounded p-1">{form.time ? <p>Horário: {form.time}</p> : null}</div>
-                <div className="m-1 bg-white rounded p-1">{form.payment ? <p>Só aceita: {form.payment}</p> : null}</div>
+                <div className="m-1 bg-white rounded p-1">{form.payment ? <p>Só aceita: {form.payment === "nap" ? "Não aceita pagamento" : null}</p> : null}</div>
                 <div className="m-1 mb-5 bg-white rounded p-1">{form.msg ? <h2>Slogan: {form.msg}</h2> : null}</div>
             </div>
             <Link to="/" className="bg-white m-3 p-2 rounded transition ease-in-out delay-50 hover:scale-110 hover:bg-green-500 duration-50">Voltar</Link>

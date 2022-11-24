@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 // EDITAR ANUNCIO
 
 export function HeroEdit(props) {
@@ -20,7 +21,7 @@ export function HeroEdit(props) {
         fetchHero();
         console.log(params.id);
         async function fetchHero() {
-            try {             
+            try {
                 const response = await axios.get(`https://ironrest.cyclic.app/hero-news/${params.id}`);
                 console.log(response.data);
                 setForm(response.data)
@@ -33,7 +34,7 @@ export function HeroEdit(props) {
     const [skill, setSkill] = useState("");
 
     function handleChange(event) {
-        
+
         setForm({ ...form, [event.target.name]: event.target.value })
     }
 
@@ -75,9 +76,9 @@ export function HeroEdit(props) {
 
     return (
 
-        <form>
+        <form className="m-10 mx-20 p-5 bg-yellow-500">
             {/* NAME */}
-            <div>
+            <div className="m-1 bg-white rounded p-1">
                 <label htmlFor="inputName">Nome: </label>
                 <input
                     id="inputName"
@@ -85,13 +86,13 @@ export function HeroEdit(props) {
                     name="name"
                     onChange={handleChange}
                     value={form.name}
-                    placeholder="Digite seu nome de heroi"
                     required
+                    className="bg-gray-300 border indent-1 border-black rounded"
                 />
             </div>
 
             {/* AGE */}
-            <div>
+            <div className="m-1 bg-white rounded p-1">
                 <label htmlFor="input-age">Idade: </label>
                 <input
                     type='number'
@@ -99,11 +100,12 @@ export function HeroEdit(props) {
                     name='age'
                     onChange={handleChange}
                     value={form.age}
+                    className="w-20 bg-gray-300 border border-black indent-1 rounded"
                 ></input>
             </div>
 
             {/* WHERE */}
-            <div>
+            <div className="m-1 bg-white rounded p-1">
                 <label htmlFor="input-where">Onde: </label>
                 <input
                     type='text'
@@ -112,11 +114,12 @@ export function HeroEdit(props) {
                     onChange={handleChange}
                     value={form.where}
                     required
+                    className="bg-gray-300 border indent-1 border-black rounded"
                 ></input>
             </div>
 
             {/* SKILLS*/}
-            <div>
+            <div className="m-1 bg-white rounded p-1">
                 <label htmlFor="inputSkills">
                     Quais suas habilidades?{" "}
                 </label>
@@ -125,7 +128,7 @@ export function HeroEdit(props) {
                     type="text"
                     name="skills"
                     value={skill}
-                    placeholder="Suas skills de heroi..."
+                    className="bg-gray-300 border indent-1 border-black rounded"
                     // REMOVED ENTER, CONFLICT WITH SUBMIT BTN
                     onKeyDown={(event) => event.key === 'Enter' ?
                         (
@@ -140,37 +143,40 @@ export function HeroEdit(props) {
                 />
                 <button
                     type="button"
+                    className="rounded leading-6 p-1 mx-1 text-xl transition ease-in-out delay-50 hover:scale-110 hover:bg-red-500 duration-50"
                     onClick={() => {
                         setForm(handleSkillInput());
                         setSkill('');
                     }}
                 >
-                    Adicionar
+                    (+)
                 </button>
                 <br />
                 {form.skills.map((currentSkill) => (
                     <div key={`${form.name}-${currentSkill}`}>
-                        <strong>{currentSkill}</strong>
+                        <strong className="p-1 h-6 leading-8 m-1 bg-green-500 rounded">{currentSkill}</strong>
                         <button
                             type="button"
+                            className="bg-red-500 h-6 leading-3 rounded p-1 mx-1 transition ease-in-out delay-50 hover:scale-150 hover:bg-red-500 duration-50"
                             onClick={() => {
                                 setForm({ ...form, skills: form.skills.filter(element => element !== currentSkill) });
                             }}
                         >
-                            Remover
+                            X
                         </button>
                     </div>
                 ))}
             </div>
 
             {/* TIME*/}
-            <div>
+            <div className="m-1 bg-white rounded p-1">
                 <label htmlFor="input-time">Horário: </label>
                 <select
                     id='input-time'
                     name='time'
                     onChange={handleChange}
                     defaultValue={form.time}
+                    className="border-2 border-blue-500"
                 >
 
                     <option value="day">Diurno</option>
@@ -180,8 +186,8 @@ export function HeroEdit(props) {
             </div>
 
             {/* PAYMENT*/}
-            <div>
-                <label>Forma de pagamento: </label>
+            <div className="m-1 bg-white rounded p-1">
+                <label className="pr-1">Forma de pagamento: </label>
 
                 <input
                     id="input-payment-pix"
@@ -190,8 +196,9 @@ export function HeroEdit(props) {
                     value="pix"
                     onChange={handleChange}
                     checked={form.payment === "pix"}
+                    className="p-1"
                 />
-                <label htmlFor="input-payment-pix">Pix</label>
+                <label htmlFor="input-payment-pix" className="p-1">Pix |</label>
                 <input
                     id="input-payment-credCard"
                     type="radio"
@@ -200,7 +207,7 @@ export function HeroEdit(props) {
                     onChange={handleChange}
                     checked={form.payment === "credCard"}
                 />
-                <label htmlFor="input-payment-credCard">Cred-Card</label>
+                <label htmlFor="input-payment-credCard" className="p-1">Cred-Card |</label>
                 <input
                     id="input-payment-nap"
                     type="radio"
@@ -209,13 +216,13 @@ export function HeroEdit(props) {
                     onChange={handleChange}
                     checked={form.payment === "nap"}
                 />
-                <label htmlFor="input-payment-nap">Não Aceita Pagamento</label>
+                <label htmlFor="input-payment-nap" className="p-1">Não Aceita Pagamento</label>
             </div>
 
             {/* MSG ADD*/}
-            <div>
+            <div className="m-1 bg-white rounded p-1 align-top">
                 <label htmlFor="inputMsg">Crie sua mensagem: </label>
-                <input
+                <textarea
                     id="inputMsg"
                     type="text"
                     name="msg"
@@ -223,10 +230,11 @@ export function HeroEdit(props) {
                     value={form.msg}
                     maxLength={99}
                     required
+                    className="align-top bg-gray-300 border indent-1 border-black rounded pr-40"
                 />
             </div>
-
-            <button type="button" onClick={handleSubmitChange}>Enviar</button>
+            <Link to="/" className="bg-white m-1 p-2 rounded transition ease-in-out delay-50 hover:scale-110 hover:bg-green-500 duration-50">Voltar</Link>
+            <button type="button" onClick={handleSubmitChange} className="bg-white m-1 p-2 rounded transition ease-in-out delay-50 hover:scale-110 hover:bg-green-500 duration-50">Enviar</button>
         </form>
     )
 }
