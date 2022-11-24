@@ -1,80 +1,84 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import { useParams } from "react-router-dom";
 // EDITAR ANUNCIO
 
-export function HeroEdit(){
+export function HeroEdit() {
 
-        const [form, setForm] = useState({
-            name: "",
-            age: 30,
-            skills: [],
-            where: "",
-            time: "",
-            payment: "nap",
-            msg: "",
-        })
+    const params = useParams();
+    const [form, setForm] = useState({
+        name: "",
+        age: 30,
+        skills: [],
+        where: "",
+        time: "",
+        payment: "nap",
+        msg: "",
+    })
 
-        useEffect(() => {
-            fetchHero();
-            async function fetchHero() {
-                try {
-                    // const response = await axios.get(`https://ironrest.cyclic.app/hero-news/ver-anuncio/${params.id}`);
-                    // MODO TESTE 
-                    const response = await axios.get(`https://ironrest.cyclic.app/hero-news/637d39baefd1e40027121ade`);
-                    console.log(response.data);
-                    setForm(response.data)
-                } catch (err) {
-                    console.log(err)
-                }
-            }
-        }, [])
-    
-        const [skill, setSkill] = useState("");
-    
-        function handleChange(event) {
-            setForm({ ...form, [event.target.name]: event.target.value })
-        }
-    
-        async function handleSubmitChange(event) {
-            event.preventDefault();
+    useEffect(() => {
+        fetchHero();
+        async function fetchHero() {
             try {
-                const res = await axios.put("https://ironrest.cyclic.app/hero-news/637d39baefd1e40027121ade", {
-                    name: form.name,
-                    age: form.age,
-                    skills: form.skills,
-                    where: form.where,
-                    time: form.time,
-                    payment: form.payment,
-                    msg: form.msg,
-                });
-                console.log(res);
-                // setForm({
-                //     name: "",
-                //     age: 30,
-                //     skills: [],
-                //     where: "",
-                //     time: "",
-                //     payment: "nap",
-                //     msg: "",
-                // })
+                // const response = await axios.get(`https://ironrest.cyclic.app/hero-news/ver-anuncio/${params.id}`);
+                // MODO TESTE 
+                const response = await axios.get(`https://ironrest.cyclic.app/hero-news/${params.id}`);
+                console.log(response.data);
+                setForm(response.data)
             } catch (err) {
-                console.log(err);
+                console.log(err)
             }
         }
+    }, [])
+
+    const [skill, setSkill] = useState("");
+
+    function handleChange(event) {
         
-        function handleSkillInput(){
-            if(form.skills.includes(skill) || skill === ''){
-            return {...form}
-            }
-            return {...form, skills: [...form.skills, skill]};
+        setForm({ ...form, [event.target.name]: event.target.value })
+    }
+
+    async function handleSubmitChange(event) {
+        event.preventDefault();
+
+        try {
+            delete form._id;
+            const res = await axios.put(`https://ironrest.cyclic.app/hero-news/${params.id}`, {
+                name: form.name,
+                age: form.age,
+                skills: form.skills,
+                where: form.where,
+                time: form.time,
+                payment: form.payment,
+                msg: form.msg,
+            });
+            console.log(res);
+            // setForm({
+            //     name: "",
+            //     age: 30,
+            //     skills: [],
+            //     where: "",
+            //     time: "",
+            //     payment: "nap",
+            //     msg: "",
+            // })
+        } catch (err) {
+            console.log(err);
         }
-        
-        return (
-            
-            <form>
-                {/* NAME */}
-                <div>
+    }
+
+    function handleSkillInput() {
+        if (form.skills.includes(skill) || skill === '') {
+            return { ...form }
+        }
+        return { ...form, skills: [...form.skills, skill] };
+    }
+
+    return (
+
+        <form>
+            {/* NAME */}
+            <div>
                 <label htmlFor="inputName">Nome: </label>
                 <input
                     id="inputName"
@@ -85,10 +89,10 @@ export function HeroEdit(){
                     placeholder="Digite seu nome de heroi"
                     required
                 />
-                </div>
-    
-                {/* AGE */}
-                <div>
+            </div>
+
+            {/* AGE */}
+            <div>
                 <label htmlFor="input-age">Idade: </label>
                 <input
                     type='number'
@@ -97,10 +101,10 @@ export function HeroEdit(){
                     onChange={handleChange}
                     value={form.age}
                 ></input>
-                </div>
-    
-                {/* WHERE */}
-                <div>
+            </div>
+
+            {/* WHERE */}
+            <div>
                 <label htmlFor="input-where">Onde: </label>
                 <input
                     type='text'
@@ -110,10 +114,10 @@ export function HeroEdit(){
                     value={form.where}
                     required
                 ></input>
-                </div>
-    
-                {/* SKILLS*/}
-                <div>
+            </div>
+
+            {/* SKILLS*/}
+            <div>
                 <label htmlFor="inputSkills">
                     Quais suas habilidades?{" "}
                 </label>
@@ -124,10 +128,10 @@ export function HeroEdit(){
                     value={skill}
                     placeholder="Suas skills de heroi..."
                     // REMOVED ENTER, CONFLICT WITH SUBMIT BTN
-                    onKeyDown={(event) => event.key === 'Enter' ? 
+                    onKeyDown={(event) => event.key === 'Enter' ?
                         (
-                        setForm(handleSkillInput()),
-                        setSkill('')
+                            setForm(handleSkillInput()),
+                            setSkill('')
                         )
                         : null
                     }
@@ -151,35 +155,35 @@ export function HeroEdit(){
                         <button
                             type="button"
                             onClick={() => {
-                                setForm({...form, skills: form.skills.filter(element => element !== currentSkill)});   
+                                setForm({ ...form, skills: form.skills.filter(element => element !== currentSkill) });
                             }}
                         >
                             Remover
                         </button>
                     </div>
                 ))}
-                </div>
-            
-                {/* TIME*/} 
-                <div>
-                <label htmlFor="input-time">Horário: </label>            
+            </div>
+
+            {/* TIME*/}
+            <div>
+                <label htmlFor="input-time">Horário: </label>
                 <select
                     id='input-time'
                     name='time'
                     onChange={handleChange}
                     defaultValue={form.time}
-                >   
-                    
+                >
+
                     <option value="day">Diurno</option>
                     <option value="night">Noturno</option>
                     <option value="full-day">24h</option>
                 </select>
-                </div>
-    
-                {/* PAYMENT*/}
-                <div>
+            </div>
+
+            {/* PAYMENT*/}
+            <div>
                 <label>Forma de pagamento: </label>
-                
+
                 <input
                     id="input-payment-pix"
                     type="radio"
@@ -207,10 +211,10 @@ export function HeroEdit(){
                     checked={form.payment === "nap"}
                 />
                 <label htmlFor="input-payment-nap">Não Aceita Pagamento</label>
-                </div>
-    
-                {/* MSG ADD*/} 
-                <div>             
+            </div>
+
+            {/* MSG ADD*/}
+            <div>
                 <label htmlFor="inputMsg">Crie sua mensagem: </label>
                 <input
                     id="inputMsg"
@@ -221,14 +225,14 @@ export function HeroEdit(){
                     maxLength={99}
                     required
                 />
-                </div> 
-    
-                <button type="button" onClick={handleSubmitChange}>Enviar</button>
-            </form>
-        )
-    }
+            </div>
+
+            <button type="button" onClick={handleSubmitChange}>Enviar</button>
+        </form>
+    )
+}
 
 
 
 
- 
+
