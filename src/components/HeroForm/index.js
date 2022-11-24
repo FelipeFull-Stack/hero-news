@@ -143,7 +143,7 @@ export function HeroForm() {
                         <strong className="p-1 m-1 bg-blue-500 rounded">{currentSkill}</strong>
                         <button
                             type="button"
-                            className="bg-red-500 h-6 align-top leading-3 rounded p-1 mx-1 transition ease-in-out delay-50 hover:scale-150 hover:bg-red-500 duration-50"
+                            className="bg-red-500 h-6 mb-1 align-top leading-3 rounded p-1 mx-1 transition ease-in-out delay-50 hover:scale-150 hover:bg-red-500 duration-50"
                             onClick={() => {
                                 setForm({ ...form, skills: form.skills.filter(element => element !== currentSkill) });
                             }}
@@ -218,7 +218,7 @@ export function HeroForm() {
                     className="align-top bg-gray-300 border indent-1 border-black p-1 rounded w-full text-xs w-full"
                 />
             </div>
-            <Link to="/" className="bg-white m-1 p-2 rounded transition ease-in-out delay-50 hover:scale-110 hover:bg-green-500 duration-50">Voltar</Link>                    
+            <Link to="/"><button className="bg-white m-1 p-2 rounded transition ease-in-out delay-50 hover:scale-110 hover:bg-green-500 duration-50">Voltar</button></Link>                    
             <button type="button" onClick={handleSubmit} className="bg-white m-1 p-2 rounded transition ease-in-out delay-50 hover:scale-110 hover:bg-green-500 duration-50">Criar</button>
         </form>
     )
