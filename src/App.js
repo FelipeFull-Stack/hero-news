@@ -17,10 +17,10 @@ function App() {
         <Route path="/" element={<HeroPage />} />{/*home - exibição dos anuncios*/}
         <Route path="/criar-anuncio" element={<HeroForm />} />{/*criação do formulário*/}
         <Route path="/ver-anuncio/:id" element={<HeroView />} />{/*visualização do formulário*/}
-        <Route path="/editar-anuncio" element={<HeroEdit />} />{/*edição do formulário*/}
+        <Route path="/editar-anuncio/:id" element={<HeroEdit />} />{/*edição do formulário*/}
         <Route path="*" />
       </Routes>
-      {/* <SideBarShop /> Se a gnt conseguir chegar*/}
+      
     </div>
   );
 }

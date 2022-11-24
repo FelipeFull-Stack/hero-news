@@ -3,7 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 // EDITAR ANUNCIO
 
-export function HeroEdit() {
+export function HeroEdit(props) {
 
     const params = useParams();
     const [form, setForm] = useState({
@@ -18,10 +18,9 @@ export function HeroEdit() {
 
     useEffect(() => {
         fetchHero();
+        console.log(params.id);
         async function fetchHero() {
-            try {
-                // const response = await axios.get(`https://ironrest.cyclic.app/hero-news/ver-anuncio/${params.id}`);
-                // MODO TESTE 
+            try {             
                 const response = await axios.get(`https://ironrest.cyclic.app/hero-news/${params.id}`);
                 console.log(response.data);
                 setForm(response.data)
