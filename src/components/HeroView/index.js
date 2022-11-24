@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 
@@ -24,15 +24,15 @@ export function HeroView() {
     }, [])
 
     return (
-        <div className="m-10 p-5 bg-blue-500">
+        <div className="m-10 p-5 bg-blue-500 rounded-md">
             <div key={form._id} className="m-2">
                 <p className="m-1 bg-white rounded p-1">{form.name ? <h1>Nome: {form.name}</h1> : null}</p>
                 <p className="m-1 bg-white rounded p-1">{form.age ? <p>Idade: {form.age}</p> : null}</p>
                 <p className="m-1 bg-white rounded p-1">{form.where ? <p>Atuando em: {form.where}</p> : null}</p>
                 <p className="m-1 bg-white rounded">{form.skills && form.skills.length !== 0 ?
-                    <ul>Skills:
+                    <ul className="p-1">Skills:
                         {form.skills.map(element => {
-                            return (<li key={`${form.name}-${element}`}>{element}</li>);
+                            return (<li key={`${form.name}-${element}`} className="align-middle	">- {element}</li>);
                         })}
                     </ul>
                     : null}</p>
@@ -40,8 +40,8 @@ export function HeroView() {
                 <p className="m-1 bg-white rounded p-1">{form.payment ? <p>Só aceita: {form.payment}</p> : null}</p>
                 <p className="m-1 mb-5 bg-white rounded p-1">{form.msg ? <h2>Slogan: {form.msg}</h2> : null}</p>
             </div>
-            <Link to="/" className="bg-white m-3 p-2 rounded">Voltar</Link>
-            <Link to={`/editar-anuncio/${form.id}`} className="bg-white m-2 p-2 rounded">Editar</Link>
+            <Link to="/" className="bg-white m-3 p-2 rounded transition ease-in-out delay-50 hover:scale-110 hover:bg-green-500 duration-50">Voltar</Link>
+            <Link to={`/editar-anuncio/${form.id}`} className="bg-white m-2 p-2 rounded transition ease-in-out delay-50 hover:scale-110 hover:bg-green-500 duration-50">Editar</Link>
         </div>
     );
 }
