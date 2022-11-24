@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Star Guard';
+    src: url(./fonts/StarGuard3DItalic-MoEr.ttf);
+}
+
+@font-face {
+    font-family: 'icons heroes';
+    src: url(./fonts/HallOfHeroes-BErn.ttf);
+}
+
+.title-nav {
+    font-family: 'Star Guard';
+    font-size: 36px;
+    font-weight: 550;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.icon {
+    font-family: 'icons heroes';
+    color: white;
+}
