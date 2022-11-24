@@ -76,7 +76,7 @@ export function HeroEdit(props) {
 
     return (
 
-        <form className="m-10 mx-20 p-5 bg-yellow-500">
+        <form className="m-5 mx-20 p-5 bg-yellow-500">
             {/* NAME */}
             <div className="m-1 bg-white rounded p-1">
                 <label htmlFor="inputName">Nome: </label>
@@ -233,7 +233,7 @@ export function HeroEdit(props) {
                     className="align-top bg-gray-300 border indent-1 border-black rounded pr-40"
                 />
             </div>
-            <Link to="/" className="bg-white m-1 p-2 rounded transition ease-in-out delay-50 hover:scale-110 hover:bg-green-500 duration-50">Voltar</Link>
+            <Link to="/"><button className="bg-white m-1 p-2 rounded transition ease-in-out delay-50 hover:scale-110 hover:bg-green-500 duration-50">Voltar</button></Link>
             <button type="button" onClick={handleSubmitChange} className="bg-white m-1 p-2 rounded transition ease-in-out delay-50 hover:scale-110 hover:bg-green-500 duration-50">Enviar</button>
         </form>
     )
