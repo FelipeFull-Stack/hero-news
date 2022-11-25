@@ -37,7 +37,7 @@ export function HeroView() {
         <div className="m-10 mx-20 p-5 bg-blue-500">
             <div key={form._id} className="m-2">
                 <div className="m-1 bg-white rounded p-1">{form.name ? <h1>Nome: {form.name}</h1> : null}</div>
-                <div className="m-1 bg-white rounded p-1">{form.age ? <p>Idade: {form.age}</p> : null}</div>
+                <div className="m-1 bg-white rounded p-1">{form.age ? <p>Idade: {form.age} anos</p> : null}</div>
                 <div className="m-1 bg-white rounded p-1">{form.where ? <p>Atuando em: {form.where}</p> : null}</div>
                 <div className="m-1 bg-white rounded">{form.skills && form.skills.length !== 0 ?
                     <ul className="p-1">Skills:

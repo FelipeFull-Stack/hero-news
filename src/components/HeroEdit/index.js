@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-// EDITAR ANUNCIO
+import { useNavigate } from "react-router-dom";
 
 export function HeroEdit(props) {
+
+    const navigate = useNavigate();
 
     const params = useParams();
     const [form, setForm] = useState({
@@ -52,16 +54,8 @@ export function HeroEdit(props) {
                 payment: form.payment,
                 msg: form.msg,
             });
-            window.location = ('http://localhost:3000/');
-            // setForm({
-            //     name: "",
-            //     age: 30,
-            //     skills: [],
-            //     where: "",
-            //     time: "",
-            //     payment: "nap",
-            //     msg: "",
-            // })
+            navigate("/");
+
         } catch (err) {
             console.log(err);
         }
