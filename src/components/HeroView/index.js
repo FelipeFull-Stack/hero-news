@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -9,6 +10,7 @@ export function HeroView() {
 
     const [form, setForm] = useState({});
     const params = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchHero();
@@ -26,7 +28,8 @@ export function HeroView() {
         try {
             await axios.delete(`https://ironrest.cyclic.app/hero-news/${params.id}`);
             //DEIXAR DINAMICO AINDA A URL, TROCAR O LOCAL HOST
-            window.location = ('http://localhost:3000/')
+            // window.location = ('http://localhost:3000/')
+            navigate("/");
         }
         catch (err) {
             console.log(err);
