@@ -3,8 +3,8 @@
 	
 "~ Este app foi desenvolvido mais como uma forma de descontração e entretenimento."
 
-Link de apresentação: url(" ")
-Link do deploy: url(" ")
+Link de apresentação: url("https://docs.google.com/presentation/d/1Ll_9kNQDTod5rWe6ewpCsrfjvU-zdKascgeO6BAcQro/edit?usp=sharing")
+Link do deploy: url("https://the-hero-journal.netlify.app/")
 
 **Introdução**
 	Uma página web que exibe Cards (blocos de informação) de forma prévia, filtradas e puxadas diretamente de uma API. *"Será exibido apenas o Nome e a Mensagem do Card criado."*
