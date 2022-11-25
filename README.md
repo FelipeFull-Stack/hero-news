@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+**Projeto #2 - Hero Feed**
+	Criando um formulário web com React.js, inspirado a contar um pouco sobre o que os super-heróis fazem ou procuram fazer em seus cotidianos fora dos filmes.
+	
+"~ Este app foi desenvolvido mais como uma forma de descontração e entretenimento."
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Link de apresentação: url(" ")
+Link do deploy: url(" ")
 
-## Available Scripts
+**Introdução**
+	Uma página web que exibe Cards (blocos de informação) de forma prévia, filtradas e puxadas diretamente de uma API. *"Será exibido apenas o Nome e a Mensagem do Card criado."*
+	Imagem: ![HeroPage](https://user-images.githubusercontent.com/106980470/203888422-e60df1cf-8b79-4a12-9e22-ccb7e85fc37f.png)
 
-In the project directory, you can run:
 
-### `npm start`
+- **CRUD do Formulário**
+	- Create) Aqui é possível criar um novo Card com as caracteristicas próprias, podendo impor um personagem fictício ou não. Aqui sua imaginação pode voar solta!
+	Image: ![HeroForm](https://user-images.githubusercontent.com/106980470/203888490-393d83ab-8f8a-4d54-b55b-2dbe9c7a3a86.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+	
+	- Read) Aqui é possível visualizar completamente o conteúdo do Card selecionado, também fica ao *alcance os botões para "editar" ou "deletar" o Card.
+	Image: ![HeroView](https://user-images.githubusercontent.com/106980470/203888501-591a997b-cba8-49c7-9d5e-75047938815b.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+	- Edit) Aqui é possível editar o conteúdo do Card selecionado, tanto para por mais informações como para sua remoção.
+	Image: ![HeroEdit](https://user-images.githubusercontent.com/106980470/203888509-00621877-4e04-446b-8860-9e8795be696c.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+	- Delete) Aqui é possível deletar o Card selecionado.
+	Image: ![HeroDelete](https://user-images.githubusercontent.com/106980470/203888627-65deb2f7-707a-4bc4-b590-8f20e60c8f51.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+	
+  
+  
+  
+Creatores:
+- Luiz Felipe Soares Lopes : Full-stack Web/JavaScript development student
+- Vitor Moraes : Full-stack Web/JavaScript development student
