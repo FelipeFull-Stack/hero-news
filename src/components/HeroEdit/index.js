@@ -167,7 +167,7 @@ export function HeroEdit(props) {
                     </div>
                 ))}
             </div>
-            
+
             {/* TIME*/}
             <div className="m-1 bg-white rounded p-1">
                 <label htmlFor="input-time">Horário: </label>

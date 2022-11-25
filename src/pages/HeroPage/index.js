@@ -23,7 +23,7 @@ export function HeroPage() {
     console.log(form)
     return (
 
-        <div className="flex flex-row flex-wrap items-center gap-3 m-5">
+        <div className="flex flex-row flex-wrap place-content-start gap-3 mx-8 my-5">
 
             {form.map((currentElement) => {
                 return (
