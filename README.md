@@ -25,7 +25,8 @@ Link do deploy: url("https://the-hero-journal.netlify.app/")
 
 
 	- Delete) Aqui é possível deletar o Card selecionado.
-	Image: ![HeroDelete](https://user-images.githubusercontent.com/106980470/203888627-65deb2f7-707a-4bc4-b590-8f20e60c8f51.png)
+	Image: 
+	![HeroDelete](https://user-images.githubusercontent.com/106980470/203888627-65deb2f7-707a-4bc4-b590-8f20e60c8f51.png)
 
 	
   
